@@ -55,10 +55,8 @@ public class Main {
                 x++;
                 a=r;
             }
-            if(flag==0)
-                System.out.println("-1");
-            else
-                System.out.println(ans);
+            if(flag==0) ans = -1;
+            System.out.println(ans);
 
         }
     }
