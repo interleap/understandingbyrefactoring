@@ -50,4 +50,8 @@ public class Fraction {
     public int hashCode() {
         return Objects.hash(numerator, denominator);
     }
+
+    public Fraction withoutWholeNumber() {
+        return new Fraction(numerator%denominator, denominator);
+    }
 }

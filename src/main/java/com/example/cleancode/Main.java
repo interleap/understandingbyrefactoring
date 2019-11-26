@@ -23,14 +23,15 @@ public class Main {
 
          final Fraction reducedFraction = fraction.reduce();
 
-         int numerator=reducedFraction.getNumerator();
-        int denominator=reducedFraction.getDenominator();
 
-        int[] A = new int[denominator+5];
          int x=0,ans=-1;
 
         int flag=1;
-        numerator=numerator%denominator;
+        Fraction fractionWithoutWholeNumber = reducedFraction.withoutWholeNumber();
+         int numerator=fractionWithoutWholeNumber.getNumerator();
+         int denominator=fractionWithoutWholeNumber.getDenominator();
+         int[] A = new int[denominator+5];
+
         while(true)
         {
             if(numerator==0)
