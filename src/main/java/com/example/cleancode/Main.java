@@ -19,38 +19,38 @@ public class Main {
             a = in.nextInt();
             b = in.nextInt();
 
-            System.out.println(calculateAnswerForTestCase(a, b));
+            System.out.println(calculateAnswerForTestCase(new Fraction(a,b)));
 
         }
     }
 
-     static int calculateAnswerForTestCase(int a, int b) {
+     static int calculateAnswerForTestCase(Fraction fraction) {
         int r;//using MACRO and determining GCD of p,q
-        int k= orderInsensitiveGCD(a, b);
+        int orderInsensitiveGCD= orderInsensitiveGCD(fraction.getNumerator(), fraction.getDenominator());
 
         // bring the numbers to their smallest possible forms
-        a/=k;
-        b/=k;
+        int numerator=fraction.getNumerator()/orderInsensitiveGCD;
+        int denominator=fraction.getDenominator()/orderInsensitiveGCD;
 
-        int[] A = new int[b+5];
+        int[] A = new int[denominator+5];
          int x=0,ans=-1;
 
         int flag=1;
-        a=a%b;
+        numerator=numerator%denominator;
         while(true)
         {
-            if(a==0)
+            if(numerator==0)
             {
                 flag=0;
                 break;
             }
-            a*=10;
-            while(a<b)
+            numerator*=10;
+            while(numerator<denominator)
             {
-                a*=10;
+                numerator*=10;
                 x++;
             }
-            r=a%b;
+            r= numerator % denominator;
             if(A[r]!=0)
             {
                 ans=x-A[r];
@@ -58,7 +58,7 @@ public class Main {
             }
             A[r]=x;
             x++;
-            a=r;
+            numerator = r;
         }
         if(flag==0) ans = -1;
         return ans;
