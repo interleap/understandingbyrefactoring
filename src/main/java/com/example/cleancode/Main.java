@@ -24,9 +24,9 @@ public class Main {
         }
     }
 
-    private static int calculateAnswerForTestCase(int a, int b) {
+     static int calculateAnswerForTestCase(int a, int b) {
         int r;//using MACRO and determining GCD of p,q
-        int k=gcd((a>b)?a:b,(a<b)?a:b);
+        int k= orderInsensitiveGCD(a, b);
 
         // bring the numbers to their smallest possible forms
         a/=k;
@@ -63,5 +63,9 @@ public class Main {
         }
         if(flag==0) ans = -1;
         return ans;
+    }
+
+     static int orderInsensitiveGCD(int a, int b) {
+        return gcd((a>b)?a:b,(a<b)?a:b);
     }
 }
