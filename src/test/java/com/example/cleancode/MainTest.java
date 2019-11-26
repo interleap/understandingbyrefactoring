@@ -18,6 +18,8 @@ public class MainTest {
         assertEquals(-1, calculateAnswerForTestCase(new Fraction(5, 2)));
         assertEquals(1,  calculateAnswerForTestCase(new Fraction(20, 6)));
         assertEquals(-1, calculateAnswerForTestCase(new Fraction(20, 5)));
+        assertEquals(-1, calculateAnswerForTestCase(new Fraction(5, 20)));
+        assertEquals(18, calculateAnswerForTestCase(new Fraction(30, 19)));
     }
 
 }
