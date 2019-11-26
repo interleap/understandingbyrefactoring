@@ -65,4 +65,46 @@ public class Fraction {
         }
         return dividend==0;
     }
+
+    int numberOfDigitsInRepeatingDecimal() {
+      int remainder;
+
+       final Fraction reducedFraction = reduce();
+
+
+       int currentDecimalPosition=0,numberOfDigitsInRepeatingDecimal=-1;
+
+      Fraction fractionWithoutWholeNumber = reducedFraction.withoutWholeNumber();
+
+      //If it is a terminating fraction, then it will not have a repeating decimal
+      if(fractionWithoutWholeNumber.isTerminating()) return -1;
+
+       int currentNumerator=fractionWithoutWholeNumber.getNumerator();
+       int currentDenominator=fractionWithoutWholeNumber.getDenominator();
+       int[] indexOfFirstOccurence = new int[currentDenominator];
+
+      while(true)
+      {
+          currentNumerator*=10;
+          while(currentNumerator<currentDenominator)
+          {
+              currentNumerator*=10;
+              currentDecimalPosition++;
+          }
+          remainder= currentNumerator % currentDenominator;
+          if(hasThisRemainderOccuredBefore(indexOfFirstOccurence[remainder]))
+          {
+              numberOfDigitsInRepeatingDecimal=currentDecimalPosition-indexOfFirstOccurence[remainder];
+              break;
+          }
+          indexOfFirstOccurence[remainder]=currentDecimalPosition;
+          currentDecimalPosition++;
+          currentNumerator = remainder;
+      }
+      return numberOfDigitsInRepeatingDecimal;
+  }
+
+    private boolean hasThisRemainderOccuredBefore(int i) {
+        return i !=0;
+    }
 }

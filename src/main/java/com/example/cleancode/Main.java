@@ -13,45 +13,9 @@ public class Main {
             a = in.nextInt();
             b = in.nextInt();
 
-            System.out.println(calculateAnswerForTestCase(new Fraction(a,b)));
+            System.out.println(new Fraction(a,b).numberOfDigitsInRepeatingDecimal());
 
         }
-    }
-
-     static int calculateAnswerForTestCase(Fraction fraction) {
-        int r;
-
-         final Fraction reducedFraction = fraction.reduce();
-
-
-         int x=0,ans=-1;
-
-        int flag=1;
-        Fraction fractionWithoutWholeNumber = reducedFraction.withoutWholeNumber();
-        if(fractionWithoutWholeNumber.isTerminating()) return -1;
-         int numerator=fractionWithoutWholeNumber.getNumerator();
-         int denominator=fractionWithoutWholeNumber.getDenominator();
-         int[] A = new int[denominator+5];
-
-        while(true)
-        {
-            numerator*=10;
-            while(numerator<denominator)
-            {
-                numerator*=10;
-                x++;
-            }
-            r= numerator % denominator;
-            if(A[r]!=0)
-            {
-                ans=x-A[r];
-                break;
-            }
-            A[r]=x;
-            x++;
-            numerator = r;
-        }
-        return ans;
     }
 
 }
