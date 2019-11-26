@@ -13,7 +13,7 @@ public class Main {
             a = in.nextInt();
             b = in.nextInt();
 
-            System.out.println(new Fraction(a,b).numberOfDigitsInRepeatingDecimal());
+            System.out.println(new Fraction(a,b).countOfRecurringDecimalDigits());
 
         }
     }

@@ -66,7 +66,7 @@ public class Fraction {
         return dividend==0;
     }
 
-    int numberOfDigitsInRepeatingDecimal() {
+    int countOfRecurringDecimalDigits() {
       int remainder;
 
        final Fraction reducedFraction = reduce();
