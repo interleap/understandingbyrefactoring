@@ -28,6 +28,7 @@ public class Main {
 
         int flag=1;
         Fraction fractionWithoutWholeNumber = reducedFraction.withoutWholeNumber();
+        if(fractionWithoutWholeNumber.isTerminating()) return -1;
          int numerator=fractionWithoutWholeNumber.getNumerator();
          int denominator=fractionWithoutWholeNumber.getDenominator();
          int[] A = new int[denominator+5];

@@ -54,4 +54,15 @@ public class Fraction {
     public Fraction withoutWholeNumber() {
         return new Fraction(numerator%denominator, denominator);
     }
+
+    public boolean isTerminating() {
+        Fraction withoutWholeNumber = withoutWholeNumber();
+        int dividend = withoutWholeNumber.numerator;
+        int divisor = withoutWholeNumber.denominator;
+        for (int i = 0; i < divisor && dividend > 0; i++ ) {
+            while(dividend < divisor) dividend*=10;
+            dividend = dividend % divisor;
+        }
+        return dividend==0;
+    }
 }

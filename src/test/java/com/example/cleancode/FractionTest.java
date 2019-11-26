@@ -21,4 +21,14 @@ public class FractionTest {
         assertEquals(new Fraction(19,5),
                 new Fraction(19,5).reduce());
     }
+
+    @Test
+    public void shouldReturnTrueForTerminatingFraction(){
+        assertTrue(new Fraction(203, 200).isTerminating());
+    }
+
+    @Test
+    public void shouldReturnFalseForNonTerminatingFraction(){
+        assertFalse(new Fraction(203, 201).isTerminating());
+    }
 }
