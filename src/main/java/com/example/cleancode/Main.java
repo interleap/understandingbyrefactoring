@@ -33,8 +33,7 @@ public class Main {
         b/=k;
 
         int[] A = new int[b+5];
-        int[] B = new int[b+5];
-        int x=0,ans=-1;
+         int x=0,ans=-1;
 
         int flag=1;
         a=a%b;
