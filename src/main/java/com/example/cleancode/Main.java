@@ -35,11 +35,6 @@ public class Main {
 
         while(true)
         {
-            if(numerator==0)
-            {
-                flag=0;
-                break;
-            }
             numerator*=10;
             while(numerator<denominator)
             {
@@ -56,7 +51,6 @@ public class Main {
             x++;
             numerator = r;
         }
-        if(flag==0) ans = -1;
         return ans;
     }
 
