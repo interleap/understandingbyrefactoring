@@ -20,10 +20,4 @@ public class MainTest {
         assertEquals(-1, calculateAnswerForTestCase(new Fraction(20, 5)));
     }
 
-    @Test
-    public void shouldCalculateGCDWithoutCaringAboutWhatNumberIsLarger() {
-        assertEquals(4, orderInsensitiveGCD(8, 220));
-        assertEquals(4, orderInsensitiveGCD(220, 8));
-        assertEquals(1, orderInsensitiveGCD(13, 2));
-    }
 }

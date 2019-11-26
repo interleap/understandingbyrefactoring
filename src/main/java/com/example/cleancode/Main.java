@@ -4,12 +4,6 @@ import java.util.Scanner;
 
 public class Main {
 
-    static int gcd(int a, int b) {
-        if (b == 0)
-            return a;
-        return gcd(b, a % b);
-    }
-
 
     public static void main(String[] args) {
         int t, a, b, r;
@@ -25,12 +19,12 @@ public class Main {
     }
 
      static int calculateAnswerForTestCase(Fraction fraction) {
-        int r;//using MACRO and determining GCD of p,q
-        int orderInsensitiveGCD= orderInsensitiveGCD(fraction.getNumerator(), fraction.getDenominator());
+        int r;
 
-        // bring the numbers to their smallest possible forms
-        int numerator=fraction.getNumerator()/orderInsensitiveGCD;
-        int denominator=fraction.getDenominator()/orderInsensitiveGCD;
+         final Fraction reducedFraction = fraction.reduce();
+
+         int numerator=reducedFraction.getNumerator();
+        int denominator=reducedFraction.getDenominator();
 
         int[] A = new int[denominator+5];
          int x=0,ans=-1;
@@ -64,7 +58,4 @@ public class Main {
         return ans;
     }
 
-     static int orderInsensitiveGCD(int a, int b) {
-        return gcd((a>b)?a:b,(a<b)?a:b);
-    }
 }
