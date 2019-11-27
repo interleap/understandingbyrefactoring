@@ -2,18 +2,23 @@ package com.example.cleancode;
 
 import java.util.Scanner;
 
+import static java.lang.System.in;
+import static java.lang.System.out;
+
 public class Main {
 
 
     public static void main(String[] args) {
-        int t, a, b;
-        Scanner in = new Scanner(System.in);
-        t = in.nextInt();
-        while (t-- > 0) {
-            a = in.nextInt();
-            b = in.nextInt();
+        int numberOfTestCases, numerator, denominator;
+        Scanner inputScanner = new Scanner(in);
 
-            System.out.println(new Fraction(a,b).countOfRecurringDecimalDigits());
+        numberOfTestCases = inputScanner.nextInt();
+
+        while (numberOfTestCases-- > 0) {
+            numerator = inputScanner.nextInt();
+            denominator = inputScanner.nextInt();
+
+            out.println(new Fraction(numerator,denominator).countOfRecurringDecimalDigits());
 
         }
     }
