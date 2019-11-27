@@ -18,23 +18,15 @@ public class Fraction {
     }
 
      public Fraction reduce() {
-        int orderInsensitiveGCD= orderInsensitiveGCD(this.getNumerator(), this.getDenominator());
+         int orderInsensitiveGCD= orderInsensitiveGCD(numerator, denominator);
 
-        return new Fraction(
-                    this.getNumerator()/orderInsensitiveGCD,
-                            this.getDenominator()/orderInsensitiveGCD);
+         return new Fraction(
+                    numerator /orderInsensitiveGCD,
+                            denominator /orderInsensitiveGCD);
     }
 
-     int orderInsensitiveGCD(int a, int b) {
+     private int orderInsensitiveGCD(int a, int b) {
         return gcd((a>b)?a:b,(a<b)?a:b);
-    }
-
-    public int getNumerator() {
-        return numerator;
-    }
-
-    public int getDenominator() {
-        return denominator;
     }
 
     @Override
@@ -79,8 +71,8 @@ public class Fraction {
       //If it is a terminating fraction, then it will not have a repeating decimal
       if(fractionWithoutWholeNumber.isTerminating()) return -1;
 
-       int currentNumerator=fractionWithoutWholeNumber.getNumerator();
-       int currentDenominator=fractionWithoutWholeNumber.getDenominator();
+        int currentNumerator= fractionWithoutWholeNumber.numerator;
+        int currentDenominator= fractionWithoutWholeNumber.denominator;
        int[] indexOfFirstOccurence = new int[currentDenominator];
 
       while(true)
